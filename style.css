@@ -1,6 +1,8 @@
 @font-face {
-  font-family: "Arte";
-  src: local("Sprite Graffiti");
+  font-family: "Grafite";
+  src: url("fontes/Grafite.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
@@ -12,7 +14,7 @@
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  font-family: "Arte", "Comic Sans MS", cursive;
+  font-family: "Grafite", "Comic Sans MS", cursive;
   background: #052f32;
 }
 
@@ -408,7 +410,7 @@ body {
 
 .imagem-destaque h2,
 .titulo-area {
-  font-family: "Arte", "Comic Sans MS", cursive;
+  font-family: "Grafite", "Comic Sans MS", cursive;
   color: #fff;
   font-size: clamp(24px, 3vw, 42px);
   text-transform: uppercase;
@@ -486,7 +488,7 @@ body {
 }
 
 .aira-texto h2 {
-  font-family: "Arte", "Comic Sans MS", cursive;
+  font-family: "Grafite", "Comic Sans MS", cursive;
   font-size: clamp(52px, 7vw, 90px);
   text-transform: uppercase;
   text-align: right;
@@ -528,7 +530,7 @@ body {
   align-self: flex-start;
   margin-left: 10px;
   margin-bottom: 60px;
-  font-family: "Arte", "Comic Sans MS", cursive;
+  font-family: "Grafite", "Comic Sans MS", cursive;
   font-size: clamp(58px, 7vw, 100px);
   text-transform: uppercase;
   text-shadow: 0 5px 15px rgba(0,0,0,0.25);
@@ -612,20 +614,7 @@ body {
   overflow: hidden;
 }
 
-.area-artes::before,
-.area-artes::after {
-  content: "";
-  position: absolute;
-  width: 420px;
-  height: 260px;
-  background: rgba(255,255,255,0.9);
-  filter: blur(1px);
-  clip-path: polygon(
-    9% 42%, 18% 12%, 34% 22%, 48% 5%, 58% 31%, 79% 10%,
-    88% 37%, 99% 46%, 78% 58%, 92% 86%, 63% 79%, 51% 98%,
-    38% 75%, 13% 91%, 21% 63%, 0 55%
-  );
-}
+
 
 .area-artes::before {
   left: 30%;
@@ -642,7 +631,7 @@ body {
   z-index: 4;
   left: 3%;
   top: 28%;
-  font-family: "Arte", "Comic Sans MS", cursive;
+  font-family: "Grafite", "Comic Sans MS", cursive;
   font-size: clamp(50px, 7vw, 92px);
   line-height: 1.2;
   text-transform: uppercase;
@@ -663,9 +652,9 @@ body {
 }
 
 .arte-1 {
-  width: 28%;
-  height: 26%;
-  left: 17%;
+  width: 30%;
+  height: auto;
+  left: 24%;
   top: 8%;
 }
 
@@ -708,7 +697,7 @@ body {
   position: absolute;
   z-index: 4;
   color: #fff;
-  font-family: "Arte", "Comic Sans MS", cursive;
+  font-family: "Grafite", "Comic Sans MS", cursive;
   text-shadow: 0 5px 14px rgba(0,0,0,0.18);
 }
 
@@ -794,11 +783,17 @@ body {
   }
 
   .titulo-suas-artes {
-    position: relative;
-    left: auto;
-    top: auto;
-    padding: 60px 28px 20px;
-  }
+    position: absolute;
+    z-index: 4;
+    left: 3%;
+    top: 30%;
+    font-family: "Grafite", "Comic Sans MS", cursive;
+    font-size: clamp(46px, 6vw, 78px);
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 5px 18px rgba(0,0,0,0.24);
+    }
 
   .galeria-artes {
     min-height: auto;
