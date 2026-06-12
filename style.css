@@ -1,0 +1,838 @@
+@font-face {
+  font-family: "Arte";
+  src: local("Sprite Graffiti");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Arte", "Comic Sans MS", cursive;
+  background: #052f32;
+}
+
+.site {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-image: url("imagens/fundo.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.menu-lateral {
+  position: absolute;
+  left: 38px;
+  top: 30%;
+  transform: translateY(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.menu-btn {
+  width: 126px;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(218, 236, 232, 0.78);
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease;
+}
+
+.menu-btn:nth-child(2),
+.menu-btn:nth-child(4) {
+  background: rgba(0, 115, 112, 0.9);
+}
+
+.menu-btn.ativo {
+  background: rgba(218, 236, 232, 0.78);
+}
+
+.menu-btn:hover {
+  transform: translateX(8px) scale(1.04);
+  background: #00a09a;
+}
+
+.conteudo {
+  position: relative;
+  z-index: 3;
+  min-height: 100vh;
+  padding: 55px 60px 95px 185px;
+}
+
+.titulo-central {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.titulo-central span {
+  display: block;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.titulo-central h1 {
+  font-size: clamp(72px, 8vw, 120px);
+  line-height: 0.85;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+
+.card {
+  position: absolute;
+  width: 280px;
+  cursor: pointer;
+  transition: 0.35s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 128px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.9) contrast(1.05);
+  box-shadow: 0 18px 28px rgba(0, 0, 0, 0.38);
+}
+
+.card h2 {
+  margin-top: 12px;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.55);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.04) rotate(0deg);
+  z-index: 10;
+}
+
+.card:hover img {
+  filter: saturate(1.15) contrast(1.1);
+}
+
+.card-1 {
+  left: 18%;
+  top: 17%;
+  width: 275px;
+  transform: rotate(-1deg);
+}
+
+.card-2 {
+  left: 46%;
+  top: 12%;
+  width: 315px;
+  transform: rotate(1deg);
+}
+
+.card-3 {
+  right: 4%;
+  top: 24%;
+  width: 320px;
+  transform: rotate(1deg);
+}
+
+.card-4 {
+  left: 17%;
+  bottom: 17%;
+  width: 295px;
+  transform: rotate(-1deg);
+}
+
+.card-5 {
+  left: 44%;
+  bottom: 8%;
+  width: 305px;
+  transform: rotate(1deg);
+}
+
+.card-6 {
+  right: 3%;
+  bottom: 8%;
+  width: 300px;
+  transform: rotate(-1deg);
+}
+
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.modal.ativo {
+  display: flex;
+}
+
+.modal-caixa {
+  position: relative;
+  width: min(560px, 100%);
+  padding: 40px;
+  border-radius: 28px;
+  color: #fff;
+  background: linear-gradient(135deg, #06484c, #00756f);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.modal-caixa h2 {
+  margin-bottom: 18px;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+.modal-caixa p {
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.fechar {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  font-size: 28px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .conteudo {
+    padding-left: 160px;
+  }
+
+  .card {
+    width: 245px;
+  }
+
+  .card-3,
+  .card-6 {
+    right: 2%;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .conteudo {
+    position: relative;
+    min-height: auto;
+    padding: 160px 24px 100px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .menu-lateral {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    z-index: 8;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 24px;
+    justify-content: center;
+  }
+
+  .menu-btn {
+    width: auto;
+    min-width: 120px;
+  }
+
+  .titulo-central {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin-bottom: 20px;
+  }
+
+  .card,
+  .card-1,
+  .card-2,
+  .card-3,
+  .card-4,
+  .card-5,
+  .card-6 {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: min(100%, 420px);
+    margin: 0 auto;
+    transform: none;
+  }
+
+  .card img {
+    height: 190px;
+  }
+}
+
+
+/* ============================= */
+/* NOVAS ÁREAS INTERNAS */
+/* ============================= */
+
+.area {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #0a3033;
+  color: #fff;
+}
+
+.area-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.area-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.45) grayscale(0.15);
+  transform: scale(1.04);
+}
+
+.area::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.area-conteudo {
+  position: relative;
+  z-index: 3;
+  min-height: 100vh;
+  padding: 70px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.layout-texto-esquerda {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+.layout-imagem-esquerda {
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.texto-bloco {
+  max-width: 570px;
+  text-align: center;
+}
+
+.texto-bloco.direita {
+  justify-self: center;
+}
+
+.texto-bloco p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(18px, 1.7vw, 25px);
+  line-height: 1.35;
+  letter-spacing: 0.5px;
+  color: #f5f5f5;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+.imagem-destaque {
+  position: relative;
+  text-align: center;
+}
+
+.imagem-destaque img {
+  width: 100%;
+  max-height: 470px;
+  object-fit: cover;
+  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.35);
+}
+
+.imagem-destaque h2,
+.titulo-area {
+  font-family: "Arte", "Comic Sans MS", cursive;
+  color: #fff;
+  font-size: clamp(24px, 3vw, 42px);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 5px 18px rgba(0, 0, 0, 0.55);
+}
+
+.imagem-destaque h2 {
+  margin-top: 28px;
+}
+
+.titulo-area {
+  position: absolute;
+  z-index: 5;
+}
+
+.titulo-area.esquerda {
+  left: 8%;
+  top: 18%;
+}
+
+/* Ajustes individuais das áreas */
+
+.area-pioneiros .imagem-destaque img {
+  max-width: 700px;
+}
+
+.area-transicao .area-conteudo,
+.area-historia-viaduto .area-conteudo,
+.area-trajetoria-2 .area-conteudo {
+  padding-top: 110px;
+}
+
+.area-historia-fat-family .imagem-destaque h2,
+.area-trajetoria-1 .imagem-destaque h2 {
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+/* ============================= */
+/* ÁREA AIRÁ */
+/* ============================= */
+
+.area-aira {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  background: #aebebb;
+}
+
+.aira-foto {
+  height: 100%;
+}
+
+.aira-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+
+.aira-texto {
+  padding: 70px 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #aebebb;
+  color: #fff;
+}
+
+.aira-texto .estrela {
+  font-size: 62px;
+  line-height: 1;
+  margin-left: 55%;
+  margin-bottom: 10px;
+}
+
+.aira-texto h2 {
+  font-family: "Arte", "Comic Sans MS", cursive;
+  font-size: clamp(52px, 7vw, 90px);
+  text-transform: uppercase;
+  text-align: right;
+  margin-bottom: 70px;
+  text-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+}
+
+.aira-texto p {
+  max-width: 760px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(18px, 1.65vw, 24px);
+  line-height: 1.45;
+  letter-spacing: 1px;
+  margin-bottom: 36px;
+}
+
+/* ============================= */
+/* ÁREA ZAU */
+/* ============================= */
+
+.area-zau {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 46% 54%;
+  background:
+    radial-gradient(circle at 55% 10%, rgba(255,255,255,0.9) 0 8%, transparent 9%),
+    linear-gradient(90deg, #087b75 0 46%, #aab6ae 46% 100%);
+}
+
+.zau-texto {
+  padding: 90px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.zau-texto h2 {
+  align-self: flex-start;
+  margin-left: 10px;
+  margin-bottom: 60px;
+  font-family: "Arte", "Comic Sans MS", cursive;
+  font-size: clamp(58px, 7vw, 100px);
+  text-transform: uppercase;
+  text-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+
+.zau-texto p {
+  max-width: 650px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(18px, 1.65vw, 24px);
+  line-height: 1.32;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.zau-colagem {
+  position: relative;
+  min-height: 100vh;
+  background: #6b776f;
+  overflow: hidden;
+}
+
+.zau-img {
+  position: absolute;
+  object-fit: cover;
+  box-shadow: 0 18px 38px rgba(0,0,0,0.25);
+}
+
+.zau-img-1 {
+  width: 52%;
+  height: 28%;
+  left: 9%;
+  top: 8%;
+}
+
+.zau-img-2 {
+  width: 58%;
+  height: 34%;
+  left: 2%;
+  top: 37%;
+}
+
+.zau-img-3 {
+  width: 38%;
+  height: 26%;
+  right: 10%;
+  top: 31%;
+}
+
+.zau-img-4 {
+  width: 58%;
+  height: 36%;
+  right: 1%;
+  bottom: 4%;
+}
+
+.logo-zau {
+  position: absolute;
+  right: 11%;
+  top: 4%;
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #000;
+}
+
+.logo-zau img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================= */
+/* SUAS ARTES */
+/* ============================= */
+
+.area-artes {
+  min-height: 100vh;
+  background: #aab2ad;
+  position: relative;
+  overflow: hidden;
+}
+
+.area-artes::before,
+.area-artes::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 260px;
+  background: rgba(255,255,255,0.9);
+  filter: blur(1px);
+  clip-path: polygon(
+    9% 42%, 18% 12%, 34% 22%, 48% 5%, 58% 31%, 79% 10%,
+    88% 37%, 99% 46%, 78% 58%, 92% 86%, 63% 79%, 51% 98%,
+    38% 75%, 13% 91%, 21% 63%, 0 55%
+  );
+}
+
+.area-artes::before {
+  left: 30%;
+  top: 2%;
+}
+
+.area-artes::after {
+  right: -5%;
+  bottom: -3%;
+}
+
+.titulo-suas-artes {
+  position: absolute;
+  z-index: 4;
+  left: 3%;
+  top: 28%;
+  font-family: "Arte", "Comic Sans MS", cursive;
+  font-size: clamp(50px, 7vw, 92px);
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 5px 18px rgba(0,0,0,0.24);
+}
+
+.galeria-artes {
+  position: relative;
+  z-index: 3;
+  min-height: 100vh;
+}
+
+.arte {
+  position: absolute;
+  object-fit: cover;
+  box-shadow: 0 18px 35px rgba(0,0,0,0.22);
+}
+
+.arte-1 {
+  width: 28%;
+  height: 26%;
+  left: 17%;
+  top: 8%;
+}
+
+.arte-2 {
+  width: 24%;
+  height: 26%;
+  right: 2%;
+  top: 4%;
+}
+
+.arte-3 {
+  width: 22%;
+  height: 22%;
+  left: 5%;
+  bottom: 11%;
+}
+
+.arte-4 {
+  width: 22%;
+  height: 27%;
+  left: 49%;
+  top: 27%;
+}
+
+.arte-5 {
+  width: 33%;
+  height: 29%;
+  left: 35%;
+  bottom: 7%;
+}
+
+.arte-6 {
+  width: 26%;
+  height: 25%;
+  right: 0;
+  bottom: 11%;
+}
+
+.rabisco {
+  position: absolute;
+  z-index: 4;
+  color: #fff;
+  font-family: "Arte", "Comic Sans MS", cursive;
+  text-shadow: 0 5px 14px rgba(0,0,0,0.18);
+}
+
+.estrela-artes {
+  left: 28%;
+  top: 48%;
+  font-size: 55px;
+}
+
+.coroa-artes {
+  left: 57%;
+  top: 9%;
+  font-size: 60px;
+  transform: rotate(-8deg);
+}
+
+.sorriso-artes {
+  right: 13%;
+  top: 42%;
+  font-size: 80px;
+}
+
+/* ============================= */
+/* RESPONSIVO */
+/* ============================= */
+
+@media (max-width: 900px) {
+  .area-conteudo,
+  .layout-texto-esquerda,
+  .layout-imagem-esquerda {
+    min-height: auto;
+    padding: 80px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+  }
+
+  .titulo-area {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    text-align: center;
+  }
+
+  .texto-bloco,
+  .texto-bloco.direita {
+    max-width: 100%;
+  }
+
+  .imagem-destaque img {
+    max-height: none;
+  }
+
+  .area-aira,
+  .area-zau {
+    grid-template-columns: 1fr;
+  }
+
+  .aira-foto {
+    height: 65vh;
+  }
+
+  .aira-texto {
+    padding: 60px 28px;
+  }
+
+  .aira-texto h2 {
+    text-align: left;
+    margin-bottom: 40px;
+  }
+
+  .zau-colagem {
+    min-height: 720px;
+  }
+
+  .zau-texto {
+    padding: 70px 28px;
+  }
+
+  .zau-texto h2 {
+    align-self: center;
+    margin-left: 0;
+  }
+
+  .titulo-suas-artes {
+    position: relative;
+    left: auto;
+    top: auto;
+    padding: 60px 28px 20px;
+  }
+
+  .galeria-artes {
+    min-height: auto;
+    padding: 20px 24px 80px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .arte,
+  .arte-1,
+  .arte-2,
+  .arte-3,
+  .arte-4,
+  .arte-5,
+  .arte-6 {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    height: 240px;
+  }
+
+  .rabisco {
+    display: none;
+  }
+}
+
+.arte-1 {
+  width: 28%;
+  height: auto;
+  left: 17%;
+  top: 8%;
+  object-fit: contain;
+}
