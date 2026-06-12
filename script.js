@@ -1,4 +1,4 @@
-const botoesMenu = document.querySelectorAll(".menu-btn");
+const botoesMenu = document.querySelectorAll(".menu-btn:not(.menu-link)");
 const cards = document.querySelectorAll(".card");
 
 const modal = document.getElementById("modal");
