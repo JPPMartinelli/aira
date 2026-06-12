@@ -651,11 +651,13 @@ body {
   box-shadow: 0 18px 35px rgba(0,0,0,0.22);
 }
 
+
 .arte-1 {
-  width: 30%;
+  width: 28%;
   height: auto;
   left: 20%;
   top: 8%;
+  object-fit: contain;
 }
 
 .arte-2 {
@@ -822,14 +824,6 @@ body {
   .rabisco {
     display: none;
   }
-}
-
-.arte-1 {
-  width: 28%;
-  height: auto;
-  left: 20%;
-  top: 8%;
-  object-fit: contain;
 }
 
 .menu-link {
